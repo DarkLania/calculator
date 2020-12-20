@@ -1,0 +1,155 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(38, 43, 43);
+}
+
+#header{
+    flex-basis: 10vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+    color: #87b1bd;
+}
+
+#main{
+    flex-basis: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+#calculator{
+    height: 650px;
+    width: 500px;
+    align-self: center;
+    background-color: #45c0e1;
+    border-radius: 5%;
+    display:flex;
+    flex-direction: column;
+    box-shadow: 10px 10px #1c85a1;
+}
+
+#indent1{
+    height: 10%;
+}
+
+#indent2{
+    height: 5%;
+}
+
+#display{
+    display:flex;
+    width: 69%;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 15%;
+    background-color: #90b3ce;
+    border-radius: 5%;
+    box-shadow: 5px 5px #85a9c4;
+}
+
+#displayA{
+    height: 20%;
+    width: 95%;
+    align-self: center;
+    border:none;
+    background-color: #90b3ce;
+    text-align: end;
+    font-size: medium;
+}
+
+#displayB{
+    height: 50%;
+    width: 95%;
+    align-self: center;
+    border:none;
+    background-color: #90b3ce;
+    text-align: end;
+    font-size: xx-large;
+}
+
+#btns{
+    display:grid;
+    justify-content: center;
+    height: 70%;
+    grid-template-columns: 14% 14% 14% 14%;
+    grid-template-rows: 10% 10% 10% 10% 10%;
+    gap: 9% 4%;
+    border:none;
+}
+
+button{
+    border:none;
+    border-radius: 5px;
+    background-color: #aec4d4;
+    box-shadow: 5px 5px #8dabc0;
+    font-size:x-large;
+}
+
+#del{
+    font-size: medium;
+}
+
+button:active{
+    height: 98%;
+    width: 98%;
+}
+
+button:hover{
+    background-color: #90adc2;
+    box-shadow: 5px 5px #6c8ea7;
+}
+
+#clear{
+    grid-column: 1/3;
+    background-color: rgb(92, 92, 255);
+    box-shadow: 5px 5px rgb(77, 77, 219);
+}
+
+#clear:hover{
+    background-color: rgb(79, 79, 221);
+    box-shadow: 5px 5px rgb(54, 54, 155);
+}
+
+#eq{
+    background-color: rgb(92, 92, 255);
+    box-shadow: 5px 5px rgb(77, 77, 219);
+}
+
+#eq:hover{
+    background-color: rgb(79, 79, 221);
+    box-shadow: 5px 5px rgb(54, 54, 155);
+}
+
+#footer{
+    flex-basis: 10vh;
+    display:flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+    color: #87b1bd;
+}
+
+a{
+    text-decoration: none;
+    color: #3c5a63;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+a:visited{
+    color:#3c5a63;
+}
