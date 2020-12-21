@@ -60,7 +60,7 @@ h1{
 }
 
 #displayA{
-    height: 20%;
+    height: 10%;
     width: 95%;
     align-self: center;
     border:none;
@@ -70,13 +70,26 @@ h1{
 }
 
 #displayB{
-    height: 50%;
+    height: 90%;
     width: 95%;
     align-self: center;
     border:none;
     background-color: #90b3ce;
     text-align: end;
-    font-size: xx-large;
+    font-size: 250%;
+}
+
+#indent2{
+    font-size: small;
+    color:red;
+    width: 100%;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+#ms{
+    text-align: center;
 }
 
 #btns{
