@@ -1,8 +1,12 @@
 const display2=document.querySelector('#displayB');
 const ms=document.querySelector('#ms');
-let res=0;
-let op='off';
-let f=1;
+let n1='';
+let n1Check='';
+let n2='';
+let op='';
+let res='';
+let checkRes=0;
+let resetInput=0;
 display2.value='0';
 bindBtns();
 
@@ -17,7 +21,19 @@ function manage(e){
     ms.textContent='';
     switch(e.target.id){
         case 'zero':
-            if(op!=='off') break;
+            if(resetInput===1){
+                display2.value='0';
+                resetInput=0;
+                if(checkRes===1) {
+                    display2.value='0';
+                    n1='';
+                    n1Check='';
+                    n2='';
+                    op='';
+                    res='';
+                    checkRes=0;
+                }
+            }
             if(display2.value.length<16){
                 if(display2.value.indexOf('.')!==-1||Number(display2.value)!==0)
                     display2.value+='0';}
@@ -32,8 +48,18 @@ function manage(e){
         case 'seven':
         case 'eight':
         case 'nine':
-            if(op!=='off'){
+            if(resetInput===1){
                 display2.value='0';
+                resetInput=0;
+                if(checkRes===1) {
+                    display2.value='0';
+                    n1='';
+                    n1Check='';
+                    n2='';
+                    op='';
+                    res='';
+                    checkRes=0;
+                }
             }
             if(display2.value.length<16) 
                 if(Number(display2.value)!==0||display2.value.indexOf('.')!==-1)
@@ -42,6 +68,20 @@ function manage(e){
             else ms.textContent='Reached display limit of 16 simbols';
             break;
         case 'dot':
+            if(resetInput===1){
+                display2.value='0';
+                resetInput=0;
+                if(checkRes===1) {
+                    display2.value='0';
+                    n1='';
+                    n1Check='';
+                    n2='';
+                    op='';
+                    res='';
+                    checkRes=0;
+                }
+            }
+            if(display2.value===res) clear();
             if(display2.value.indexOf('.')===-1)
                 if(display2.value.length===0)
                     display2.value+='0.';
@@ -50,6 +90,19 @@ function manage(e){
                 else ms.textContent='Reached display limit of 16 simbols';
             break;
         case 'sign':
+            if(resetInput===1){
+                display2.value='0';
+                resetInput=0;
+                if(checkRes===1) {
+                    display2.value='0';
+                    n1='';
+                    n1Check='';
+                    n2='';
+                    op='';
+                    res='';
+                    checkRes=0;
+                }
+            }
             if(display2.value[0]==='-'){
                 let arr=display2.value.split('');
                 arr.shift();
@@ -66,36 +119,126 @@ function manage(e){
             }
             break;
         case 'plus':
-            sum();
+            if(resetInput=1) {
+                checkRes=0;
+            }
+            if(n1Check===''){
+                n1=display2.value;
+                n1Check=n1;
+                op='+';
+                resetInput=1;
+            }
+            else{
+                evaluate();
+                op='+'
+                checkRes=0;
+                n1Check=n1;
+            }
             break;
         case 'minus':
-            minus();
+            if(resetInput=1) {
+                checkRes=0;
+            }
+            if(n1Check===''){
+                n1=display2.value;
+                n1Check=n1;
+                op='-';
+                resetInput=1;
+            }
+            else{
+                evaluate();
+                op='-'
+                checkRes=0;
+                n1Check=n1;
+            }
             break;
         case 'mul':
-            multiply();
+            if(resetInput=1) {
+                checkRes=0;
+            }
+            if(n1Check===''){
+                n1=display2.value;
+                n1Check=n1;
+                op='*';
+                resetInput=1;
+            }
+            else{
+                evaluate();
+                op='*';
+                checkRes=0;
+                n1Check=n1;
+            }
             break;
         case 'div':
-            divide();
+            if(resetInput=1) {
+                checkRes=0;
+            }
+            if(n1Check===''){
+                n1=display2.value;
+                n1Check=n1;
+                op='/';
+                resetInput=1;
+            }
+            else{
+                evaluate();
+                op='/'
+                checkRes=0;
+                n1Check=n1;
+            }
             break;
         case 'eq':
             evaluate();
             break;
         case 'clear':
             display2.value='0';
-            res=0;
-            op='off';
+            n1='';
+            n1Check='';
+            n2='';
+            op='';
+            res='';
+            checkRes=0;
+            resetInput=0;
             break;
     }
 }
 
-function sum(){
-    if(res===0){
-        res=Number(display2.value);
-        op='sum';
-    }
-    else{ 
-        res=n+Number(display2.value);
+function evaluate(){
+    if(n1!==''&&op!==''){
+        n2=display2.value;
+        let f=Number(n1);
+        let s=Number(n2);
+        calc(f,s);
         display2.value=res;
-        op='sum';
+        checkRes=1;
+        n1=res;
+        n2='';
+        res=''; 
+        n1Check='';
+        resetInput=1;
     }
+}
+
+function calc(f,s){
+    let resn;
+    switch(op){
+        case '+':
+            resn=f+s;
+            break;
+        case '-':
+            resn=f-s;            
+            break;
+        case '*':
+            resn=f*s;
+            break;
+        case '/':
+            if(s===0){
+                ms.textContent='Can\'t divide by zero'
+                res='Error';
+            }
+            else{
+                resn=f/s;
+            }
+            break;
+    }
+    res=`${resn}`;
 }
