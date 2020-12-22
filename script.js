@@ -8,6 +8,7 @@ let res='';
 let checkRes=0;
 let resetInput=0;
 display2.value='0';
+window.addEventListener('keydown',manageInput);
 bindBtns();
 
 function bindBtns(){
@@ -17,8 +18,87 @@ function bindBtns(){
     });
 }
 
+function manageInput(e){
+    switch(e.code){
+        case 'Digit0':
+        case 'Numpad0':
+            document.getElementById('zero').click();
+            break;
+        case 'Digit1':
+        case 'Numpad1':
+            document.getElementById('one').click();
+            break;
+        case 'Digit2':
+        case 'Numpad2':
+            document.getElementById('two').click();
+            break;
+        case 'Digit3':
+        case 'Numpad3':
+            document.getElementById('three').click();
+            break;
+        case 'Digit4':
+        case 'Numpad4':
+            document.getElementById('four').click();
+            break;
+        case 'Digit5':
+        case 'Numpad5':
+            document.getElementById('five').click();
+            break;
+        case 'Digit6':
+        case 'Numpad6':
+            document.getElementById('six').click();
+            break;
+        case 'Digit7':
+        case 'Numpad7':
+            document.getElementById('seven').click();
+            break;
+        case 'Digit8':
+        case 'Numpad8':
+            document.getElementById('eight').click();
+            break;
+        case 'Digit9':
+        case 'Numpad9':
+            document.getElementById('nine').click();
+            break;
+        case 'Period':
+        case 'NumpadDecimal':
+            document.getElementById('dot').click();
+            break;
+        case 'Slash':
+            document.getElementById('sign').click();
+            break;
+        case 'Backspace':
+        case 'Delete':
+            document.getElementById('del').click();
+            break;
+        case 'Escape':
+            document.getElementById('clear').click();
+            break;
+        case 'NumpadDivide':
+            e.preventDefault();
+            document.getElementById('div').click();
+            break;
+        case 'NumpadMultiply':
+            document.getElementById('mul').click();
+            break;
+        case 'NumpadSubtract':
+            document.getElementById('minus').click();
+            break;
+        case 'NumpadAdd':
+            document.getElementById('plus').click();
+            break;
+        case 'Enter':
+        case 'NumpadEnter':
+            document.getElementById('eq').click();
+            break;
+        default:
+            break;
+    }
+}
+
 function manage(e){
     ms.textContent='';
+    console.log(e.target.id);
     switch(e.target.id){
         case 'zero':
             if(resetInput===1){
