@@ -110,10 +110,6 @@ button{
     font-size:x-large;
 }
 
-#del{
-    font-size: medium;
-}
-
 button:active{
     height: 98%;
     width: 98%;
@@ -126,23 +122,40 @@ button:hover{
 
 #clear{
     grid-column: 1/3;
-    background-color: rgb(92, 92, 255);
-    box-shadow: 5px 5px rgb(77, 77, 219);
 }
 
-#clear:hover{
-    background-color: rgb(79, 79, 221);
-    box-shadow: 5px 5px rgb(54, 54, 155);
+.purples{
+    background-color: rgb(109, 109, 252);
+    box-shadow: 5px 5px rgb(94, 94, 223);
 }
 
-#eq{
-    background-color: rgb(92, 92, 255);
-    box-shadow: 5px 5px rgb(77, 77, 219);
+.purples:hover{
+    background-color: rgb(94, 94, 235);
+    box-shadow: 5px 5px rgb(68, 68, 177);
 }
 
-#eq:hover{
-    background-color: rgb(79, 79, 221);
-    box-shadow: 5px 5px rgb(54, 54, 155);
+.operator{
+    background-color: rgb(64, 161, 51);
+    box-shadow: 5px 5px rgb(48, 122, 38);
+}
+
+.operator:hover{
+    background-color: rgb(49, 124, 39);
+    box-shadow: 5px 5px rgb(30, 80, 23);
+}
+
+#del{
+    font-size: medium;
+}
+
+.backspace{
+    background-color: rgb(255, 78, 78);
+    box-shadow: 5px 5px rgb(196, 64, 64);
+}
+
+.backspace:hover{
+    background-color: rgb(233, 55, 55);
+    box-shadow: 5px 5px rgb(124, 32, 32);
 }
 
 #footer{
@@ -165,4 +178,32 @@ a:hover{
 
 a:visited{
     color:#3c5a63;
+}
+
+.press{
+    height: 98%;
+    width: 98%;
+    background-color: #90adc2;
+    box-shadow: 5px 5px #6c8ea7;
+}
+
+.pressCeq{
+    height: 98%;
+    width: 98%;
+    background-color: rgb(94, 94, 235);
+    box-shadow: 5px 5px rgb(68, 68, 177);
+}
+
+.delet{
+    height: 98%;
+    width: 98%;
+    background-color: rgb(233, 55, 55);
+    box-shadow: 5px 5px rgb(124, 32, 32);
+}
+
+.opi{
+    height: 98%;
+    width: 98%;
+    background-color: rgb(49, 124, 39);
+    box-shadow: 5px 5px rgb(30, 80, 23);
 }
