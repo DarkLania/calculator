@@ -161,6 +161,7 @@ function manageInput(e){
             break;
         case 'Enter':
         case 'NumpadEnter':
+            e.preventDefault();
             document.getElementById('eq').click();
             document.getElementById('eq').classList.add('pressCeq');
             setTimeout(()=>{
