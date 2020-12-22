@@ -34,10 +34,10 @@ function manage(e){
                     checkRes=0;
                 }
             }
-            if(display2.value.length<16){
+            if(display2.value.length<12){
                 if(display2.value.indexOf('.')!==-1||Number(display2.value)!==0)
                     display2.value+='0';}
-            else ms.textContent='Reached display limit of 16 simbols';
+            else ms.textContent='Reached display limit of 12 simbols';
             break;
         case 'one':
         case 'two':
@@ -61,11 +61,11 @@ function manage(e){
                     checkRes=0;
                 }
             }
-            if(display2.value.length<16) 
+            if(display2.value.length<12) 
                 if(Number(display2.value)!==0||display2.value.indexOf('.')!==-1)
                 display2.value+=e.target.getAttribute('data-val');
                 else display2.value=e.target.getAttribute('data-val');
-            else ms.textContent='Reached display limit of 16 simbols';
+            else ms.textContent='Reached display limit of 12 simbols';
             break;
         case 'dot':
             if(resetInput===1){
@@ -85,9 +85,9 @@ function manage(e){
             if(display2.value.indexOf('.')===-1)
                 if(display2.value.length===0)
                     display2.value+='0.';
-                else if(display2.value.length<15)
+                else if(display2.value.length<11)
                     display2.value+='.';
-                else ms.textContent='Reached display limit of 16 simbols';
+                else ms.textContent='Reached display limit of 12 simbols';
             break;
         case 'sign':
             if(resetInput===1){
@@ -208,6 +208,7 @@ function evaluate(){
         let f=Number(n1);
         let s=Number(n2);
         calc(f,s);
+        showRes();
         display2.value=res;
         checkRes=1;
         n1=res;
@@ -233,7 +234,14 @@ function calc(f,s){
         case '/':
             if(s===0){
                 ms.textContent='Can\'t divide by zero'
-                res='Error';
+                resn=0;
+                display2.value='0';
+                n1='';
+                n1Check='';
+                n2='';
+                op='';
+                res='';
+                checkRes=0;
             }
             else{
                 resn=f/s;
@@ -241,4 +249,16 @@ function calc(f,s){
             break;
     }
     res=`${resn}`;
+}
+
+function showRes(){
+    res=parseFloat(Number(res).toFixed(6));
+    res=String(res);
+    if(res.length>12){
+        res=Number(res).toExponential();
+        if(res.length>12){
+            res='0';
+            ms.textContent='Result is too large or too small';
+        }
+    }
 }
